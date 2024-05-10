@@ -1,11 +1,14 @@
 import random
 import matplotlib.pyplot as plt
 from matplotlib.animation import ArtistAnimation
+import pygame
 
-CLUSTERS_COUNT = 2
-POINTS_COUNT = 1000
+CLUSTERS_COUNT = 3
+POINTS_COUNT = 50
 AX = 200
 AY = 200
+GIF_FRAMES_PER_SECOND = 1
+
 
 points = []
 for _ in range(POINTS_COUNT):
@@ -14,14 +17,19 @@ for _ in range(POINTS_COUNT):
     ])
 
 def get_random_color():
-    import random
-
     r = random.randint(0, 255)
     g = random.randint(0, 255)
     b = random.randint(0, 255)
     return (r / 255, g / 255, b / 255, 1)
 
+
 colors = [get_random_color() for _ in range(CLUSTERS_COUNT)]
+if CLUSTERS_COUNT == 3:
+    colors = [(1, 0, 0, 1),
+              (0, 1, 0, 1),
+              (0,0,1), 1]
+elif CLUSTERS_COUNT == 4:
+    colors.append((75/255, 75/255, 75/255,1))
 
 
 class Cluster():
@@ -116,8 +124,8 @@ while True:
 animation = ArtistAnimation(
     fig,
     frames,
-    interval=300,
+    interval=1000/GIF_FRAMES_PER_SECOND,
     repeat=True
 )
 
-animation.save(filename="animation.gif", writer="pillow")
+animation.save(filename="animation_random_generated.gif", writer="pillow")
