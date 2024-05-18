@@ -9,13 +9,6 @@ AX = 200
 AY = 200
 GIF_FRAMES_PER_SECOND = 1
 
-
-points = []
-for _ in range(POINTS_COUNT):
-    points.append([
-        random.randint(0, AX), random.randint(0, AY)
-    ])
-
 def get_random_color():
     r = random.randint(0, 255)
     g = random.randint(0, 255)

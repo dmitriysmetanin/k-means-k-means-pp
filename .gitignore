@@ -1,3 +1,10 @@
+calculating_clusters_count_using_inertia_iris.py
+points_from_image.py
+draw_by_image.py
+draw_by_random.py
+images
+animations
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
